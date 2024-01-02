@@ -55,7 +55,7 @@ def dynamic_loader(directory, base_class):
                 if isinstance(attribute, type) and issubclass(attribute, base_class) and attribute is not base_class:
                     # debug.out("Found class: " + attribute_name)
                     loaded_classes.append(attribute)
-
+    print(f"Loaded {len(loaded_classes)} classes from {directory}")
     return loaded_classes
 
 
