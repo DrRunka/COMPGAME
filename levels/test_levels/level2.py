@@ -30,7 +30,7 @@ class AnotherLevel(Level):  #deliberate name conflict
         
         #move the lose button a small amount in a random direction that is roughly towards the win button
         #get the win button location
-        win_button_center = self.win_button.center
+        # win_button_center = self.win_button.center
         # #move the lose button towards the win button
         # if win_button_center[0] < self.lose_button.center[0]:
         #     self.lose_button.move_ip(-1,random.randint(-1,1))
