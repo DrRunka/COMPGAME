@@ -3,8 +3,8 @@ from Level import Level  # Adjust the import path based on your project structur
 
 
 class SampleLevel(Level):
-    def __init__(self, game, *args, **kwargs):
-        print(f"Initializing Sample Level with args: {args} and kwargs: {kwargs}")
+    def __init__(self, game):
+        # print(f"Initializing Sample Level with args: {args} and kwargs: {kwargs}")
         super().__init__(game)
         self.font = pygame.font.Font(None, 36)
         self.win_button = pygame.Rect(100, 100, 200, 50)

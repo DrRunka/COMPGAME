@@ -35,12 +35,12 @@ def dynamic_loader(directory, base_class):
         sys.path.insert(0, directory)
 
     for filename in os.listdir(directory):
-        debug.out(filename)
+        # debug.out(filename)
         if filename.endswith('.py') and not filename.startswith('_'):
             file_path = os.path.join(directory, filename)
             spec = importlib.util.spec_from_file_location("Level", file_path)
             mod = importlib.util.module_from_spec(spec)
-            debug.out(dir(mod))
+            # debug.out(dir(mod))
             spec.loader.exec_module(mod)
 
 
@@ -48,14 +48,14 @@ def dynamic_loader(directory, base_class):
             for attribute_name in dir(mod):
                 
                 attribute = getattr(mod, attribute_name)
-                if isinstance(attribute, type):
-                    debug.out(f"Attribute: {attribute}")
-                    debug.out(f"Base class: {base_class}")
-                    debug.out(issubclass(attribute, base_class))
+                # if isinstance(attribute, type):
+                    # debug.out(f"Attribute: {attribute}")
+                    # debug.out(f"Base class: {base_class}")
+                    # debug.out(issubclass(attribute, base_class))
                 if isinstance(attribute, type) and issubclass(attribute, base_class) and attribute is not base_class:
-                    debug.out("Found class: " + attribute_name)
+                    # debug.out("Found class: " + attribute_name)
                     loaded_classes.append(attribute)
-
+    print(f"Loaded {len(loaded_classes)} classes from {directory}")
     return loaded_classes
 
 
