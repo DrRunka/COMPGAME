@@ -23,10 +23,22 @@ class AnotherLevel(Level):  #deliberate name conflict
     def update(self):
         self.game.screen.fill((0, 0, 0))  # Fill screen with black
 
-        #move the win button a small amount in a random direction
+        #move the win button a small amount in a random direction, but stay on screen
         self.win_button.move_ip(random.randint(-1,1),random.randint(-1,1))
-        #move the lose button a small amount in a random direction
+        self.win_button.clamp_ip(self.game.screen.get_rect())
+
+        
+        #move the lose button a small amount in a random direction that is roughly towards the win button
+        #get the win button location
+        win_button_center = self.win_button.center
+        # #move the lose button towards the win button
+        # if win_button_center[0] < self.lose_button.center[0]:
+        #     self.lose_button.move_ip(-1,random.randint(-1,1))
+        # else:
+        #     self.lose_button.move_ip(1,random.randint(-1,1))
         self.lose_button.move_ip(random.randint(-1,1),random.randint(-1,1))
+        
+
 
         # Draw buttons
         self.draw_button(self.win_button, "Win", (0,128, 0))
